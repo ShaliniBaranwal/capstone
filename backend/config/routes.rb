@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   
   resources :login
   resources :logout
+
+  resources :jobs
 end

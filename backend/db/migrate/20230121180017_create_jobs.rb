@@ -5,11 +5,11 @@ class CreateJobs < ActiveRecord::Migration[7.0]
       t.string :company
       t.string :ctc
       t.string :role
-      t.string :applied
-      t.string :shortlisted
-      t.string :offered
+      t.boolean :applied
+      t.boolean :shortlisted
+      t.boolean :offered
       t.string :location
-      t.string :skills
+      t.string :skills, array: true, default: []
       t.timestamps
     end
   end

@@ -32,11 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_180017) do
     t.string "company"
     t.string "ctc"
     t.string "role"
-    t.string "applied"
-    t.string "shortlisted"
-    t.string "offered"
+    t.boolean "applied"
+    t.boolean "shortlisted"
+    t.boolean "offered"
     t.string "location"
-    t.string "skills"
+    t.string "skills", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
