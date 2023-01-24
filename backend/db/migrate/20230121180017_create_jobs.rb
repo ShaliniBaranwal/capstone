@@ -11,12 +11,7 @@ class CreateJobs < ActiveRecord::Migration[7.0]
       t.string :domain
       t.string :jobCode
       t.string :skillsRequired, array: true, default: []
-      
-      t.boolean :applied
       t.string :applicationStatus
-      
-      t.boolean :shortlisted
-      t.boolean :offered
 
       t.timestamps
     end

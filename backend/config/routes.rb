@@ -6,9 +6,17 @@ Rails.application.routes.draw do
   root "application#landing"
 
   resources :account
+  resources :profile
   
   resources :login
   resources :logout
 
   resources :jobs
+
+  resources :appliedjobs
+  resources :eligiblejobs
+
+  resources :create
+  resources :delete
+  resources :update
 end

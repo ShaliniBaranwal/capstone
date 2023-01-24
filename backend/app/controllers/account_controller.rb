@@ -3,16 +3,6 @@ require 'bcrypt'
 class AccountController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-    def index
-        current_user = Account.find_by('email': session[:user_email])
-
-        if (current_user.nil?)
-            render json: { :success => false, :message => "Please log in." }
-        else
-            render json: current_user
-        end
-    end
-
     def update
         current_user = Account.find(params[:id])
 

@@ -11,6 +11,27 @@ class ProfileController < ApplicationController
         end
     end
 
+    def create
+        Profile.create(
+            "firstName": params[:firstName],
+            "lastName": params[:lastName],
+            "email": params[:email],
+            "contact": params[:contact],
+            "address": params[:address],
+            "about": params[:about],
+            "profilePic": params[:profilePic],
+            "currentCompany": params[:currentCompany],
+            "ctc": params[:ctc],
+            "currentRole": params[:currentRole],
+            "experience": params[:experience],
+            "resumeLink": params[:resumeLink],
+            "expectedSalary": params[:expectedSalary],
+            "preferredLocation": params[:preferredLocation]
+        )
+
+        render json: { :success => true, :message => "Profile created successfully." }
+    end
+
     def update
         profile = Profile.find(params[:id])
 

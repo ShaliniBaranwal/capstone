@@ -46,10 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_111816) do
     t.string "domain"
     t.string "jobCode"
     t.string "skillsRequired", default: [], array: true
-    t.boolean "applied"
     t.string "applicationStatus"
-    t.boolean "shortlisted"
-    t.boolean "offered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
