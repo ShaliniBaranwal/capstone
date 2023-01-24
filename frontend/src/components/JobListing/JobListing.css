@@ -1,0 +1,12 @@
+.joblisting{
+    background-color: white;
+    border: 2px solid red;
+    margin: 1rem;
+    padding: 1rem;
+    position: relative
+}
+
+.joblisting-details {
+    display: flex;
+    
+}
