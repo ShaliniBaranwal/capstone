@@ -1,0 +1,34 @@
+.myapp-main {
+  width: 80%;
+  align-items: center;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+.myapp-main h3 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #333333;
+  margin-left: 15px;
+}
+
+.myapp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.myapp-shortlisted,
+.myapp-interviewing,
+.myapp-rejected,
+.myapp-offerRecieved {
+  width: 12rem;
+  height: 4rem;
+  padding: 0.1rem;
+  background: #fff;
+  border-radius: 7.5px;
+}
+.myapp-main p {
+  padding: 5px 0 5px 20px;
+}

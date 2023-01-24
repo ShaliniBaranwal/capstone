@@ -1,0 +1,33 @@
+.snapshot-main {
+  width: 60%;
+  margin-left: 100px;
+}
+.snapshot-main h3 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #333333;
+  margin-left: 15px;
+}
+
+.snapshot {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.snapshot-alljobs,
+.snapshot-eligiblejobs,
+.snapshot-appliedjobs {
+  width: 12rem;
+  height: 4rem;
+  padding: 0.1rem;
+  background: #fff;
+  border-radius: 7.5px;
+}
+
+.snapshot p {
+  padding: 5px 0 5px 20px;
+}
