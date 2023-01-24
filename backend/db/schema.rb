@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_21_180017) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_24_111816) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,25 +18,58 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_180017) do
     t.string "email"
     t.string "password_digest"
     t.bigint "phone_number"
-    t.string "current_company"
-    t.bigint "current_ctc"
-    t.string "current_role"
-    t.string "about"
-    t.string "profile_picture"
+    t.date "creationDate"
+    t.string "userType"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.string "userID"
+    t.string "jobID"
+    t.string "jobCode"
+    t.date "appliedDate"
+    t.string "candidateApplicationStatus"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string "description"
-    t.string "company"
-    t.string "ctc"
-    t.string "role"
+    t.string "jobTitle"
+    t.string "jobDescription"
+    t.string "companyName"
+    t.string "location"
+    t.string "jobType"
+    t.integer "salary"
+    t.date "postedDate"
+    t.string "domain"
+    t.string "jobCode"
+    t.string "skillsRequired", default: [], array: true
     t.boolean "applied"
+    t.string "applicationStatus"
     t.boolean "shortlisted"
     t.boolean "offered"
-    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "firstName"
+    t.string "lastName"
+    t.string "email"
+    t.string "contact"
+    t.string "address"
+    t.string "about"
+    t.string "profilePic"
+    t.string "currentCompany"
+    t.integer "ctc"
+    t.string "currentRole"
+    t.integer "experience"
     t.string "skills", default: [], array: true
+    t.string "resumeLink"
+    t.integer "expectedSalary"
+    t.string "preferredLocation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

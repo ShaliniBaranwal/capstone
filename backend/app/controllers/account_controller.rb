@@ -24,11 +24,8 @@ class AccountController < ApplicationController
             'email': params[:email],
             'password': params[:password],
             'phone_number': params[:phone_number],
-            'current_company': params[:current_company],
-            'current_ctc': params[:current_ctc],
-            'current_role': params[:current_role],
-            'about': params[:about],
-            'profile_picture': params[:profile_picture],
+            'creationDate': params[:creationDate],
+            'userType': params[:userType]
         )
 
         render json: { :success => true, :message => "Updated account successfully." }
@@ -39,11 +36,8 @@ class AccountController < ApplicationController
             'email': params[:email],
             'password': params[:password],
             'phone_number': params[:phone_number],
-            'current_company': params[:current_company],
-            'current_ctc': params[:current_ctc],
-            'current_role': params[:current_role],
-            'about': params[:about],
-            'profile_picture': params[:profile_picture],
+            'creationDate': params[:creationDate],
+            'userType': params[:userType]
         )
 
         render json: { :success => true }

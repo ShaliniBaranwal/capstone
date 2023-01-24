@@ -7,15 +7,21 @@ class JobsController < ApplicationController
 
     def create
         Job.create(
-            'description': params[:description],
-            'company': params[:company],
-            'ctc': params[:ctc],
-            'role': params[:role],
-            'applied': params[:applied],
-            'shortlisted': params[:shortlisted],
-            'offered': params[:offered],
-            'location': params[:location],
-            'skills': params[:skills]
+            "jobTitle": params[:jobTitle],
+            "jobDescription": params[:jobDescription],
+            "companyName": params[:companyName],
+            "location": params[:location],
+            "jobType": params[:jobType],
+            "salary": params[:salary],
+            "postedDate": params[:postedDate],
+            "domain": params[:domain],
+            "jobCode": params[:jobCode],
+            
+            "applied": params[:applied],
+            "applicationStatus": params[:applicationStatus],
+            
+            "shortlisted": params[:shortlisted],
+            "offered": params[:offered]
         )
 
         render json: { :success => true, :message => "Job added successfully." }
@@ -26,6 +32,7 @@ class JobsController < ApplicationController
 
         job.update(
             'applied': params[:applied],
+            'applicationStatus': params[:applicationStatus],
             'shortlisted': params[:shortlisted],
             'offered': params[:offered]
         )

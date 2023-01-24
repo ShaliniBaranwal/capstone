@@ -4,11 +4,8 @@ class CreateAccounts < ActiveRecord::Migration[7.0]
       t.string :email
       t.string :password_digest
       t.bigint :phone_number
-      t.string :current_company
-      t.bigint :current_ctc
-      t.string :current_role
-      t.string :about
-      t.string :profile_picture
+      t.date :creationDate
+      t.string :userType
       t.timestamps
     end
   end
