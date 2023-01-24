@@ -1,5 +1,4 @@
 import React, { useEffect, useState }  from 'react'
-import Navbar from '../Navbar/Navbar'
 import Snapshot from '../Snapshot/Snapshot'
 import MyApplications from '../MyApplications/MyApplications'
 import JobsForm from '../JobForm/JobForm'
@@ -10,10 +9,16 @@ import './Dashboard.css'
 function Dashboard() {
 
     const [response, setResponse] = useState([]);
+    const [search, setsearch] = useState("")
     const fetchJobsDetails = async () => {
    // const response = await axios.get("/jobs");
         setResponse(response.data);
     };
+
+    const handleinputChange = (e) =>{
+        setsearch(e.target.value)
+        console.log(e.target.value);
+    }
   
     useEffect(() => {
       fetchJobsDetails();
@@ -23,8 +28,8 @@ function Dashboard() {
         <div className="dashboard">
             <Snapshot />
             <MyApplications />
-            <JobsForm />
-            <JobsListing />
+            <JobsForm handleinputChange={handleinputChange}/>
+            <JobsListing search={search} response={response} fetchJobsDetails={fetchJobsDetails}/>
         </div>
     )
 }
