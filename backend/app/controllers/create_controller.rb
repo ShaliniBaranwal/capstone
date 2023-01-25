@@ -10,7 +10,6 @@ class CreateController < ApplicationController
             !(params[:userType].nil?) &&
             !(params[:firstName].nil?) &&
             !(params[:lastName].nil?) &&
-            !(params[:contact].nil?) &&
             !(params[:address].nil?) &&
             !(params[:about].nil?) &&
             !(params[:profilePic].nil?) &&

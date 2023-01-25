@@ -54,11 +54,4 @@ class ProfileController < ApplicationController
 
         render json: { :success => true, :message => "Profile updated successfully." }
     end
-
-    def destroy
-        profile = Profile.find(params[:id])
-        profile.destroy
-
-        render json: { :success => true, :message => "Deleted profile successfully." }
-    end
 end
