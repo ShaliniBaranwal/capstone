@@ -18,6 +18,13 @@ class CreateController < ApplicationController
             !(params[:preferredLocation].nil?)
 
         if (hasParams)
+            current_user = Account.find_by('email': params[:email])
+
+            if (!current_user.nil?)
+                render json: { :success => false, :message => "EMail already in use. Please try a different EMail to create an account with." }
+                return
+            end
+
             Account.create(
                 "email": params[:email],
                 "password": params[:password],

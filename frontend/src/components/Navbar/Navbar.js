@@ -17,7 +17,6 @@ function Navbar() {
                         <div>AppliedJobs</div>
                         <div>Activity</div>
                         <div>Job Agent</div>
-
                     </div>
                 </div>
             </div>
