@@ -1,9 +1,29 @@
+.jobform-main {
+  width: 90%;
+  align-items: center;
+  margin-left: 70px;
+  margin-top: 20px;
+}
+.jobform-main h3 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+  color: #333333;
+  margin-left: 0px;
+}
 .jobform-input {
-  width: 100%;
+  width: 92%;
+  height: 28px;
+  border: 2px solid var(--clr-primary-4);
 }
 .jobform-options {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 .jobsform-options-select {
-  margin: 1rem;
+  margin: 0.5rem 1.5rem 0 0;
+  height: 20px;
+  font-size: 10px;
 }
+
