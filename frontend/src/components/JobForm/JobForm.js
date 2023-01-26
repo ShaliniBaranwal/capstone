@@ -8,10 +8,10 @@ function JobForm({ handleinputChange }) {
         <div className='jobform-main'>
             <h3>All Jobs</h3>
             <div className="jobform">
-                <input type="text" placeholder='Title,Client,Location' className='jobform-input' onchange={(e) => handleinputChange(e)} />
+                <input type="text" placeholder='Title,Client,Location' className='jobform-input' onChange={(e) => handleinputChange(e)} />
                 <Button varient="contained">Search</Button>
             </div>
-            <div className='jobform-options'>
+            {/* <div className='jobform-options'>
                 <select name='alljobs' className='jobsform-options-select'>
                     <option value='All Jobs'>All Jobs</option>
                 </select>
@@ -43,7 +43,7 @@ function JobForm({ handleinputChange }) {
                 </select>
 
 
-            </div>
+            </div> */}
 
             {/* <JobListing/>  */}
         </div>

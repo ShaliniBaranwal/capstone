@@ -3,10 +3,10 @@ import "./MyApplications.css"
 
 function MyApplications() {
 
-    const [shortlisted, setShortlisted] = useState(10)
-    const [interviewing, setInterviewing] = useState(3)
-    const [rejected, setRejected] = useState(4)
-    const [offerRecieved, setOfferRecieved] = useState(10)
+    const [shortlisted, setShortlisted] = useState(0)
+    const [interviewing, setInterviewing] = useState(0)
+    const [rejected, setRejected] = useState(0)
+    const [offerRecieved, setOfferRecieved] = useState(0)
 
     return (
         <div className='myapp-main'>

@@ -1,11 +1,25 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import "./Snapshot.css"
 
-const Snapshot = () => {
+function Snapshot({ response }) {
 
-    const [allJobs, setAllJobs] = useState(100)
-    const [eligibleJobs, setEligibleJobs] = useState(20)
-    const [appliedJobs, setAppliedJobs] = useState(20)
+    console.log(response.length);
+
+    const [allJobs, setAllJobs] = useState(0)
+    const [eligibleJobs, setEligibleJobs] = useState(0)
+    const [appliedJobs, setAppliedJobs] = useState(0)
+
+    let appliedCount = response.filter(element => {
+        return element.applied === true
+    });
+
+    let count = 0;
+    response.forEach(element => {
+        if (element) {
+            count++;
+        }
+
+    });
 
     return (
         <div className='snapshot-main'>
@@ -13,7 +27,7 @@ const Snapshot = () => {
             <div className='snapshot'>
                 <div className='snapshot-alljobs'>
                     <p>All JObs</p>
-                    <p>{allJobs}</p>
+                    <p>{count}</p>
                 </div>
 
                 <div className='snapshot-eligiblejobs'>
@@ -23,7 +37,7 @@ const Snapshot = () => {
 
                 <div className='snapshot-appliedjobs'>
                     <p>Applied jobs</p>
-                    <p>{appliedJobs}</p>
+                    <p>{appliedCount.length}</p>
                 </div>
 
             </div>
