@@ -2,12 +2,13 @@ class ProfileController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        current_user = Profile.find_by('email': session[:user_email])
+        profile = Profile.find_by('email': session[:user_email])
+        account = Account.find_by('email': session[:user_email])
 
-        if (current_user.nil?)
+        if (profile.nil?)
             render json: { :success => false, :message => "Profile does not exist." }
         else
-            render json: current_user
+            render json: { :profile => profile, :account => account, :success => true }
         end
     end
 

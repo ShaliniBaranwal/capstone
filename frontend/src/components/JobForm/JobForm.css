@@ -15,8 +15,14 @@
 }
 .jobform-input {
   width: 92%;
-  height: 28px;
+  height: 38px;
+  padding: 10px;
   border: 2px solid var(--clr-primary-4);
+  outline: none;
+}
+
+.jobform-input:focus {
+  outline: none;
 }
 .jobform-options {
   margin-top: 0;

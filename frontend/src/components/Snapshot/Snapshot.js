@@ -9,13 +9,15 @@ const Snapshot = () => {
 
     useEffect(() => {
         const fetch = async () => {
-            const appliedJobsDetails = await axios.get('/appliedjobs');
-            setAppliedJobs(appliedJobsDetails.data.length);
+            // ! COMMENTED BECAUSE ERROR
 
-            const eligibleJobsDetails = await axios.get('/eligiblejobs');
-            setEligibleJobs(eligibleJobsDetails.data.length);
+            // const appliedJobsDetails = await axios.get('/appliedjobs');
+            // setAppliedJobs(appliedJobsDetails.data.length);
 
-            const allJobsDetails = await axios.get('/appliedjobs');
+            // const eligibleJobsDetails = await axios.get('/eligiblejobs');
+            // setEligibleJobs(eligibleJobsDetails.data.length);
+
+            const allJobsDetails = await axios.get('/jobs');
             setAllJobs(allJobsDetails.data.length);
         };
 

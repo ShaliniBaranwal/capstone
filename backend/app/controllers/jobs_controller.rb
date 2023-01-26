@@ -16,12 +16,7 @@ class JobsController < ApplicationController
             "postedDate": params[:postedDate],
             "domain": params[:domain],
             "jobCode": params[:jobCode],
-            
-            "applied": params[:applied],
             "applicationStatus": params[:applicationStatus],
-            
-            "shortlisted": params[:shortlisted],
-            "offered": params[:offered]
         )
 
         render json: { :success => true, :message => "Job added successfully." }

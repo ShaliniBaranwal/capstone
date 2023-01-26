@@ -1,0 +1,42 @@
+.user-details {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 50px;
+}
+
+.header-update {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline 1px solid white;
+}
+
+.account-details-input {
+    width: 35vw;
+    padding: 25px;
+    margin: 0 25px;
+    background: var(--clr-primary-1);
+}
+
+.input-form-detail-update > label {
+    display: block;
+}
+
+.input-form-detail-update > input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.input-form-detail-update {
+    margin: 10px 0;
+}
+
+.profile-details-input {
+    width: 35vw;
+    padding: 25px;
+    margin: 0 25px;
+    background: var(--clr-primary-1);
+}

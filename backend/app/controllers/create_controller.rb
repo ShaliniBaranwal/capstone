@@ -2,6 +2,11 @@ class CreateController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def create
+        if (!session[:user_email].nil?)
+            render json: { :success => false, :message => "Already logged in. Cannot create a new account." }
+            return
+        end
+
         hasParams = 
             !(params[:email].nil?) &&
             !(params[:password].nil?) &&
@@ -46,7 +51,9 @@ class CreateController < ApplicationController
                 "preferredLocation": params[:preferredLocation],
             )
 
-            render json: { :success => true, :message => "Created account & profile successfully." }
+            session[:user_email] = params[:email]
+
+            render json: { :success => true, :message => "Created account & profile and LOGGED IN successfully." }
         else
             render json: { :success => false, :message => "Enough arguments not passed in." }
         end

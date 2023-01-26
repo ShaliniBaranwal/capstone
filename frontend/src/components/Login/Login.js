@@ -21,12 +21,12 @@ const Login = () => {
 
     return (
         <>
-            <div className="form">
-                <div class="input-form-detail">
-                    <label for="email">EMail: </label>
+            <div className="form-login">
+                <div class="input-form-detail-login">
+                    <label for="email">EMail</label>
 
                     <input
-                        className="input-form"
+                        className="input-form-login"
                         type="email"
                         name="email"
                         id="email"
@@ -35,11 +35,11 @@ const Login = () => {
                     ></input>
                 </div>
 
-                <div class="input-form-detail">
-                    <label for="password">Password: </label>
+                <div class="input-form-detail-login">
+                    <label for="password">Password</label>
 
                     <input
-                        className="input-form"
+                        className="input-form-login"
                         type="password"
                         name="password"
                         id="password"
@@ -48,10 +48,12 @@ const Login = () => {
                     ></input>
                 </div>
 
+                <div className="divider"></div>
+
                 <input type="submit" onClick={handleSubmit} />
             </div>
 
-            <p className="status">{status}</p>
+            <p className="status-login">{status}</p>
         </>
     );
 };

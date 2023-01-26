@@ -1,4 +1,5 @@
 import axios from "axios";
+import './Logout.css';
 import { useEffect, useState } from "react";
 
 const Logout = () => {
@@ -13,7 +14,7 @@ const Logout = () => {
         logout();
     }, []);
 
-    return <p className="status">
+    return <p className="status-logout">
         {status}
     </p>
 };
