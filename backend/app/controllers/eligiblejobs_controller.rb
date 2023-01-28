@@ -1,4 +1,4 @@
-class EligibleJobsController < ApplicationController
+class EligiblejobsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
@@ -17,7 +17,7 @@ class EligibleJobsController < ApplicationController
             end
 
             if (skillsMatched)
-                eligibleJobs.append(skills)
+                eligibleJobs.append(job)
             end
         end
 

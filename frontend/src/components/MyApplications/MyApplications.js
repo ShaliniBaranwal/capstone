@@ -1,40 +1,44 @@
-import React, { useState } from 'react'
-import "./MyApplications.css"
+import React, { useContext } from 'react';
+import './MyApplications.css';
+import {
+    shortlistedContext,
+    interviewingContext,
+    rejectedContext,
+    offeredContext
+} from '../Dashboard/Dashboard';
 
 function MyApplications() {
-
-    const [shortlisted, setShortlisted] = useState(10)
-    const [interviewing, setInterviewing] = useState(3)
-    const [rejected, setRejected] = useState(4)
-    const [offerRecieved, setOfferRecieved] = useState(10)
+    const shortlisted = useContext(shortlistedContext);
+    const interviewing = useContext(interviewingContext);
+    const rejected = useContext(rejectedContext);
+    const offered = useContext(offeredContext);
 
     return (
-        <div className='myapp-main'>
+        <div className="myapp-main">
             <h3>My Applications</h3>
-            <div className='myapp'>
-                <div className='myapp-shortlisted'>
+            <div className="myapp">
+                <div className="myapp-shortlisted">
                     <p>Shortlisted</p>
                     <p>{shortlisted}</p>
                 </div>
 
-                <div className='myapp-interviewing'>
+                <div className="myapp-interviewing">
                     <p>Interviewing</p>
                     <p>{interviewing}</p>
                 </div>
 
-                <div className='myapp-rejected'>
+                <div className="myapp-rejected">
                     <p>Rejected</p>
                     <p>{rejected}</p>
                 </div>
 
-                <div className='myapp-offerRecieved'>
+                <div className="myapp-offerRecieved">
                     <p>Offer Received</p>
-                    <p>{offerRecieved}</p>
+                    <p>{offered}</p>
                 </div>
-
             </div>
         </div>
-    )
+    );
 }
 
-export default MyApplications
+export default MyApplications;

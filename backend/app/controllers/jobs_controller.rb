@@ -14,9 +14,10 @@ class JobsController < ApplicationController
             "jobType": params[:jobType],
             "salary": params[:salary],
             "postedDate": params[:postedDate],
+            "skillsRequired": params[:skillsRequired],
             "domain": params[:domain],
             "jobCode": params[:jobCode],
-            "applicationStatus": params[:applicationStatus],
+            "applicationStatus": params[:applicationStatus]
         )
 
         render json: { :success => true, :message => "Job added successfully." }
@@ -26,10 +27,7 @@ class JobsController < ApplicationController
         job = Job.find(params[:id])
 
         job.update(
-            'applied': params[:applied],
-            'applicationStatus': params[:applicationStatus],
-            'shortlisted': params[:shortlisted],
-            'offered': params[:offered]
+            'applicationStatus': params[:applicationStatus]
         )
 
         render json: { :success => true, :message => "Updated successfully." }

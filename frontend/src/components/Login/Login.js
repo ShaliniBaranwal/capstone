@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
 import './Login.css';
+import { redirect } from 'react-router-dom';
 
 const Login = () => {
+    const [loggedIn, setLoggedIn] = useState(false);
     const [loginData, setLoginData] = useState({});
     const [status, setStatus] = useState('');
 
@@ -13,49 +15,55 @@ const Login = () => {
         });
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const res = await axios.post('/login', loginData);
 
         setStatus(res.data.message);
+        setLoggedIn(res.data.success);
     };
 
-    return (
-        <>
-            <div className="form-login">
-                <div class="input-form-detail-login">
-                    <label for="email">EMail</label>
-
-                    <input
-                        className="input-form-login"
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="email"
-                        onChange={handleInputChange}
-                    ></input>
-                </div>
-
-                <div class="input-form-detail-login">
-                    <label for="password">Password</label>
-
-                    <input
-                        className="input-form-login"
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="password"
-                        onChange={handleInputChange}
-                    ></input>
-                </div>
-
-                <div className="divider"></div>
-
-                <input type="submit" onClick={handleSubmit} />
-            </div>
-
-            <p className="status-login">{status}</p>
-        </>
-    );
+    if (loggedIn) {
+        window.location = '/';
+    } else {
+        return (
+            <>
+                <form className="form-login">
+                    <div class="input-form-detail-login">
+                        <label for="email">EMail</label>
+    
+                        <input
+                            className="input-form-login"
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="email"
+                            onChange={handleInputChange}
+                        ></input>
+                    </div>
+    
+                    <div class="input-form-detail-login">
+                        <label for="password">Password</label>
+    
+                        <input
+                            className="input-form-login"
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="password"
+                            onChange={handleInputChange}
+                        ></input>
+                    </div>
+    
+                    <div className="divider"></div>
+    
+                    <input type="submit" onClick={handleSubmit} value="LOG IN" />
+                </form>
+    
+                <p className="status-login">{status}</p>
+            </>
+        );
+    }
 };
 
 export default Login;

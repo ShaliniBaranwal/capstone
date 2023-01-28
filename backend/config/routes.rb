@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   resources :create
   resources :delete
   resources :update
+
+  resources :shortlisted
+  resources :offered
+  resources :rejected
+  resources :interviewing
 end

@@ -8,6 +8,7 @@ const Update = () => {
     const [userData, setUserData] = useState({});
     const [status, setStatus] = useState('');
     const [accountStatus, setAccountStatus] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('');
 
     const handleInputChange = (event) => {
         setUserData({
@@ -25,17 +26,24 @@ const Update = () => {
     }, []);
 
     const handleSubmit = async () => {
-        const skills = userData.skills;
+        const skills = userData.skills.toLowerCase();
 
-        if (skills) {
-            setUserData({
-                ...userData,
-                skills: skills.split(',')
-            });
+        const res = await axios.post('/update', {
+            ...userData,
+            skills: skills
+                .split(/( ?)+,( ?)+/g)
+                .filter((skillName) => skillName !== ' ' && skillName !== '')
+        });
+
+        if (res.data.success) {
+            window.location = '/profile';
+        } else {
+            setStatus(res.data.message);
         }
+    };
 
-        const res = await axios.post('/update', userData);
-        setStatus(res.data.message);
+    const handleSubmitDropdown = (e) => {
+        setSelectedOption(e.target.value);
     };
 
     if (accountStatus) {
@@ -43,8 +51,10 @@ const Update = () => {
             <>
                 <div className="form-update">
                     <div className="user-details">
-                        <div className="account-details-input">
-                            <span className='header-update'>ACCOUNT DETAILS</span>
+                        <form className="update-account-form">
+                            <span className="header-update">
+                                ACCOUNT DETAILS
+                            </span>
                             <div className="input-form-detail-update">
                                 <label for="password">Password</label>
                                 <input
@@ -63,24 +73,29 @@ const Update = () => {
                                     type="text"
                                     name="phone_number"
                                     id="phone_number"
-                                    placeholder="phone_number"
+                                    placeholder="phone number"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
                             <div className="input-form-detail-update">
                                 <label for="userType">User Type</label>
-                                <input
-                                    className="input-form"
-                                    type="text"
-                                    name="userType"
-                                    id="userType"
-                                    placeholder="userType"
-                                    onChange={handleInputChange}
-                                ></input>
+
+                                <select
+                                    value={selectedOption}
+                                    onChange={handleSubmitDropdown}
+                                >
+                                    <option value="" disabled>
+                                        Select an option
+                                    </option>
+                                    <option value="Student">Student</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
                             </div>
-                        </div>
-                        <div className="profile-details-input">
-                        <span className='header-update'>PROFILE DETAILS</span>
+                        </form>
+                        <form className="update-profile-form">
+                            <span className="header-update">
+                                PROFILE DETAILS
+                            </span>
                             <div className="input-form-detail-update">
                                 <label for="firstName">First Name</label>
                                 <input
@@ -88,7 +103,7 @@ const Update = () => {
                                     type="text"
                                     name="firstName"
                                     id="firstName"
-                                    placeholder="firstName"
+                                    placeholder="first name"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -99,7 +114,7 @@ const Update = () => {
                                     type="text"
                                     name="lastName"
                                     id="lastName"
-                                    placeholder="lastName"
+                                    placeholder="last name"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -123,7 +138,7 @@ const Update = () => {
                                     type="text"
                                     name="currentCompany"
                                     id="currentCompany"
-                                    placeholder="currentCompany"
+                                    placeholder="current company"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -145,7 +160,7 @@ const Update = () => {
                                     type="text"
                                     name="currentRole"
                                     id="currentRole"
-                                    placeholder="currentRole"
+                                    placeholder="current role"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -156,7 +171,7 @@ const Update = () => {
                                     type="number"
                                     name="experience"
                                     id="experience"
-                                    placeholder="experience"
+                                    placeholder="experience (in years)"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -200,7 +215,7 @@ const Update = () => {
                                     type="text"
                                     name="profilePic"
                                     id="profilePic"
-                                    placeholder="profilePic"
+                                    placeholder="profile pic (url)"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -211,7 +226,7 @@ const Update = () => {
                                     type="text"
                                     name="resumeLink"
                                     id="resumeLink"
-                                    placeholder="resumeLink"
+                                    placeholder="resume link (url)"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -224,7 +239,7 @@ const Update = () => {
                                     type="text"
                                     name="expectedSalary"
                                     id="expectedSalary"
-                                    placeholder="expectedSalary"
+                                    placeholder="expected salary (in ₹)"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
@@ -237,17 +252,21 @@ const Update = () => {
                                     type="text"
                                     name="preferredLocation"
                                     id="preferredLocation"
-                                    placeholder="preferredLocation"
+                                    placeholder="preferred location (eg. Mumbai, Maharashtra)"
                                     onChange={handleInputChange}
                                 ></input>
                             </div>
-                        </div>
+                        </form>
                     </div>
 
-                    <input type="submit" onClick={handleSubmit}></input>
+                    <input
+                        type="submit"
+                        onClick={handleSubmit}
+                        value="SUBMIT"
+                    ></input>
                 </div>
 
-                <p className="status">{status}</p>
+                <p className="status-update">{status}</p>
             </>
         );
     } else {

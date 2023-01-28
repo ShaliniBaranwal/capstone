@@ -1,42 +1,70 @@
-.user-details {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    padding: 50px;
-}
-
-.header-update {
-    font-size: 25px;
-    font-weight: bold;
-    text-decoration: underline 1px solid white;
-}
-
-.account-details-input {
-    width: 35vw;
-    padding: 25px;
-    margin: 0 25px;
-    background: var(--clr-primary-1);
+.update-profile-form,
+.update-account-form {
+    width: 75vw;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 10px 20px 0px #999;
 }
 
 .input-form-detail-update > label {
     display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .input-form-detail-update > input {
     width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-form-detail-update > select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+
+.input-form-detail-update > input:focus {
+    border-color: #349ef5;
     outline: none;
 }
 
-.input-form-detail-update {
-    margin: 10px 0;
+.input-form-detail-update > select:focus {
+    border-color: #349ef5;
+    outline: none;
 }
 
-.profile-details-input {
-    width: 35vw;
-    padding: 25px;
-    margin: 0 25px;
-    background: var(--clr-primary-1);
+.form-update > input[type='submit'] {
+    width: 15%;
+    background-color: #349ef5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.header-update {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+.status-update {
+    display: block;
+    text-align: center;
 }

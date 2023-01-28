@@ -1,24 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import './Snapshot.css';
 
+import {
+    setAllJobsContext,
+    setEligibleJobsContext,
+    setAppliedJobsContext,
+    allJobsContext,
+    eligibleJobsContext,
+    appliedJobsContext
+} from '../Dashboard/Dashboard';
+
 const Snapshot = () => {
-    const [allJobs, setAllJobs] = useState(0);
-    const [eligibleJobs, setEligibleJobs] = useState(0);
-    const [appliedJobs, setAppliedJobs] = useState(0);
+    const allJobs = useContext(allJobsContext);
+    const eligibleJobs = useContext(eligibleJobsContext);
+    const appliedJobs = useContext(appliedJobsContext);
+
+    const setAllJobs = useContext(setAllJobsContext);
+    const setAppliedJobs = useContext(setAppliedJobsContext);
+    const setEligibleJobs = useContext(setEligibleJobsContext);
 
     useEffect(() => {
         const fetch = async () => {
-            // ! COMMENTED BECAUSE ERROR
-
-            // const appliedJobsDetails = await axios.get('/appliedjobs');
-            // setAppliedJobs(appliedJobsDetails.data.length);
-
-            // const eligibleJobsDetails = await axios.get('/eligiblejobs');
-            // setEligibleJobs(eligibleJobsDetails.data.length);
-
             const allJobsDetails = await axios.get('/jobs');
             setAllJobs(allJobsDetails.data.length);
+
+            const appliedJobsDetails = await axios.get('/appliedjobs');
+            setAppliedJobs(appliedJobsDetails.data.length);
+
+            const eligibleJobsDetails = await axios.get('/eligiblejobs');
+            setEligibleJobs(eligibleJobsDetails.data.length);
         };
 
         fetch();

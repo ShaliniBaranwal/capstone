@@ -1,12 +1,11 @@
 import React from 'react'
 import "./JobForm.css"
 import Button from '@mui/material/Button'
-import JobListing from '../JobListing/JobListing'
 
-function JobForm({ handleinputChange }) {
+function JobForm({ handleinputChange, heading }) {
     return (
         <div className='jobform-main'>
-            <h3>All Jobs</h3>
+            <h3>{heading}</h3>
             <div className="jobform">
                 <input type="text" placeholder='Title, Client, Location' className='jobform-input' onChange={(e) => handleinputChange(e)} />
                 <Button varient="contained">Search</Button>
@@ -35,17 +34,12 @@ function JobForm({ handleinputChange }) {
                     <option value='Full Time'>Full Time</option>
                     <option value='Part Time'>Part Time</option>
                     <option value='Remote'>Remote</option>
-
                 </select>
 
                 <select name='posteddate' className='jobsform-options-select'>
                     <option value='PostedDate'>Posted Date</option>
                 </select>
-
-
             </div>
-
-            {/* <JobListing/>  */}
         </div>
     )
 }

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Job from '../Job/Job';
 import axios from 'axios';
+import JobForm from '../JobForm/JobForm';
 
-function JobListing() {
+const EligibleJobs = () => {
     const [jobs, setJobs] = useState([]);
     const [applied, setApplied] = useState([]);
 
@@ -24,8 +25,10 @@ function JobListing() {
 
     return (
         <>
-            {jobs.map((job) => {
-                return (
+            <JobForm heading="Eligible Jobs" />
+
+            <div className="eligible-jobs-display-ui">
+                {jobs.map((job) => (
                     <Job
                         id={job.id}
                         jobCode={job.jobCode}
@@ -37,10 +40,10 @@ function JobListing() {
                         companyName={job.companyName}
                         jobDescription={job.jobDescription}
                     />
-                );
-            })}
+                ))}
+            </div>
         </>
     );
-}
+};
 
-export default JobListing;
+export default EligibleJobs;
