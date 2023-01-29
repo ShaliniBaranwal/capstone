@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
 import './Login.css';
-import { redirect } from 'react-router-dom';
 
 const Login = () => {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -29,9 +28,9 @@ const Login = () => {
         return (
             <>
                 <form className="form-login">
-                    <div class="input-form-detail-login">
-                        <label for="email">EMail</label>
-    
+                    <div className="input-form-detail-login">
+                        <label htmlFor="email">EMail</label>
+
                         <input
                             className="input-form-login"
                             type="email"
@@ -41,10 +40,10 @@ const Login = () => {
                             onChange={handleInputChange}
                         ></input>
                     </div>
-    
-                    <div class="input-form-detail-login">
-                        <label for="password">Password</label>
-    
+
+                    <div className="input-form-detail-login">
+                        <label htmlFor="password">Password</label>
+
                         <input
                             className="input-form-login"
                             type="password"
@@ -54,12 +53,12 @@ const Login = () => {
                             onChange={handleInputChange}
                         ></input>
                     </div>
-    
+
                     <div className="divider"></div>
-    
+
                     <input type="submit" onClick={handleSubmit} value="LOG IN" />
                 </form>
-    
+
                 <p className="status-login">{status}</p>
             </>
         );

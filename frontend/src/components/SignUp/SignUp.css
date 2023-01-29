@@ -11,8 +11,8 @@
 .account-details-input {
     width: 35vw;
     padding: 25px;
-    margin: 0 25px;
-    background: #F5F5F5;
+    margin: 0 auto;
+    background: #f5f5f5;
 }
 
 .input-form-detail-signup > label {
@@ -27,6 +27,14 @@
     outline: none;
 }
 
+.input-form-detail-signup > select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
 .input-form-detail-signup {
     margin: 10px 0;
 }
@@ -34,8 +42,8 @@
 .profile-details-input {
     width: 35vw;
     padding: 25px;
-    margin: 0 25px;
-    background: #F5F5F5;
+    margin: 10px auto;
+    background: #f5f5f5;
 }
 
 .email-input {
@@ -62,9 +70,15 @@
     text-align: left;
 }
 
-input[type="submit"] {
+.form-signup input[type='submit'] {
+    width: 15%;
+    background-color: #349ef5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
     display: block;
-    border: 1px solid black;
-    margin-bottom: 50px;
-    margin: auto;
 }

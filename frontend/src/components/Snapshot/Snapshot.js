@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import './Snapshot.css';
+import { Link } from 'react-router-dom';
 
 import {
     setAllJobsContext,
@@ -39,19 +40,49 @@ const Snapshot = () => {
         <div className="snapshot-main">
             <h3>Snapshot</h3>
             <div className="snapshot">
-                <div className="snapshot-alljobs">
-                    <p>All Jobs</p>
-                    <p>{allJobs}</p>
+                <div className="snapshot-jobs-information">
+                    <div className="image">
+                        <div></div>
+                    </div>
+
+                    <div className="jobs-info">
+                        <p className="job-type-name">All Jobs</p>
+                        <p className="job-type-count">{allJobs}</p>
+                    </div>
+
+                    <Link to="/jobsindomain">
+                        <div className="arrow"></div>
+                    </Link>
                 </div>
 
-                <div className="snapshot-eligiblejobs">
-                    <p>Eligible Jobs</p>
-                    <p>{eligibleJobs}</p>
+                <div className="snapshot-jobs-information">
+                    <div className="image">
+                        <div></div>
+                    </div>
+
+                    <div className="jobs-info">
+                        <p className="job-type-name">Eligible Jobs</p>
+                        <p className="job-type-count">{eligibleJobs}</p>
+                    </div>
+
+                    <Link to="/eligiblejobs">
+                        <div className="arrow"></div>
+                    </Link>
                 </div>
 
-                <div className="snapshot-appliedjobs">
-                    <p>Applied jobs</p>
-                    <p>{appliedJobs}</p>
+                <div className="snapshot-jobs-information">
+                    <div className="image">
+                        <div></div>
+                    </div>
+
+                    <div className="jobs-info">
+                        <p className="job-type-name">Applied Jobs</p>
+                        <p className="job-type-count">{appliedJobs}</p>
+                    </div>
+
+                    <Link to="/appliedjobs">
+                        <div className="arrow"></div>
+                    </Link>
                 </div>
             </div>
         </div>

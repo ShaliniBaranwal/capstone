@@ -108,8 +108,11 @@ const Info = () => {
                         {Object.keys(profile).map((key) => {
                             if (
                                 key !== 'id' &&
+                                key !== 'password_digest' &&
                                 key !== 'created_at' &&
-                                key !== 'updated_at'
+                                key !== 'creationDate' &&
+                                key !== 'updated_at' &&
+                                key !== 'email'
                             ) {
                                 if (key !== 'skills' && key !== 'ctc') {
                                     const toDisplay = enhance(key);

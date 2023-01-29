@@ -117,7 +117,6 @@ function Dashboard() {
                                                                             }
                                                                         />
                                                                     </div>
-                                                                    ;
                                                                 </offeredContext.Provider>
                                                             </rejectedContext.Provider>
                                                         </shortlistedContext.Provider>

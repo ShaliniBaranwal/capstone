@@ -8,7 +8,7 @@ function JobForm({ handleinputChange, heading }) {
             <h3>{heading}</h3>
             <div className="jobform">
                 <input type="text" placeholder='Title, Client, Location' className='jobform-input' onChange={(e) => handleinputChange(e)} />
-                <Button varient="contained">Search</Button>
+                <Button variant="contained">Search</Button>
             </div>
             <div className='jobform-options'>
                 <select name='alljobs' className='jobsform-options-select'>

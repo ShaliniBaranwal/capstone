@@ -39,7 +39,12 @@
     font-size: 16px;
     line-height: 150%;
 }
-
+.menu div.navSelected {
+    background-image: url(../../images/Union.png);
+    background-repeat: no-repeat;
+    background-position: 26px 11px;
+    background-size: 40px 40px;
+}
 .nav-links a {
     margin: 5px 20px 0 20px;
     font-family: 'Roboto';
@@ -49,4 +54,30 @@
     line-height: 150%;
     text-decoration: none;
     color: white;
+}
+
+.right {
+    box-sizing: border-box;
+    width: 19%;
+    justify-content: flex-end;
+    padding: 0 25px;
+}
+
+.profile-pic {
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 50px;
+}
+
+.profile-pic:hover {
+    box-shadow: 0 0 10px 0 rgb(19, 22, 224);
+}
+
+.dropdown-pfp {
+    position: absolute;
+    top: 10%;
+    right: 40px;
 }

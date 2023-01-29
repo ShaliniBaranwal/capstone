@@ -5,6 +5,7 @@ import './SignUp.css';
 const SignUp = () => {
     const [userData, setUserData] = useState({});
     const [status, setStatus] = useState('');
+    const [selectedOption, setSelectedOption] = useState('');
 
     const handleInputChange = (event) => {
         setUserData({
@@ -25,12 +26,16 @@ const SignUp = () => {
         setStatus(res.data.message);
     };
 
+    const handleSubmitDropdown = (e) => {
+        setSelectedOption(e.target.value);
+    };
+
     return (
         <>
             <div className="form-signup">
                 <div className="email-input">
                     <div className="input-form-detail-signup">
-                        <label for="email">EMail</label>
+                        <label htmlFor="email">EMail</label>
 
                         <input
                             className="input-form"
@@ -46,7 +51,7 @@ const SignUp = () => {
                 <div className="account-details-input">
                     <span className="header-signup">ACCOUNT DETAILS</span>
                     <div className="input-form-detail-signup">
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input
                             className="input-form"
                             type="password"
@@ -57,7 +62,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="phone_number">Phone Number</label>
+                        <label htmlFor="phone_number">Phone Number</label>
                         <input
                             className="input-form"
                             type="text"
@@ -68,22 +73,25 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="userType">User Type</label>
-                        <input
-                            className="input-form"
-                            type="text"
-                            name="userType"
-                            id="userType"
-                            placeholder="userType"
-                            onChange={handleInputChange}
-                        ></input>
+                        <label htmlFor="userType">User Type</label>
+
+                        <select
+                            value={selectedOption}
+                            onChange={handleSubmitDropdown}
+                        >
+                            <option value="" disabled>
+                                Select an option
+                            </option>
+                            <option value="Student">Student</option>
+                            <option value="Admin">Admin</option>
+                        </select>
                     </div>
                 </div>
 
                 <div className="profile-details-input">
                     <span className="header-signup">PROFILE DETAILS</span>
                     <div className="input-form-detail-signup">
-                        <label for="firstName">First Name</label>
+                        <label htmlFor="firstName">First Name</label>
                         <input
                             className="input-form"
                             type="text"
@@ -94,7 +102,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="lastName">Last Name</label>
+                        <label htmlFor="lastName">Last Name</label>
                         <input
                             className="input-form"
                             type="text"
@@ -105,7 +113,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="address">Address</label>
+                        <label htmlFor="address">Address</label>
                         <input
                             className="input-form"
                             type="text"
@@ -116,7 +124,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="aboutabout">About</label>
+                        <label htmlFor="aboutabout">About</label>
                         <input
                             className="input-form"
                             type="text"
@@ -127,7 +135,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="profilePic">Profile Pic</label>
+                        <label htmlFor="profilePic">Profile Pic</label>
                         <input
                             className="input-form"
                             type="text"
@@ -138,7 +146,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="resumeLink">Resume Link</label>
+                        <label htmlFor="resumeLink">Resume Link</label>
                         <input
                             className="input-form"
                             type="text"
@@ -149,7 +157,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="expectedSalary">Expected Salary</label>
+                        <label htmlFor="expectedSalary">Expected Salary</label>
                         <input
                             className="input-form"
                             type="text"
@@ -160,7 +168,7 @@ const SignUp = () => {
                         ></input>
                     </div>
                     <div className="input-form-detail-signup">
-                        <label for="preferredLocation">
+                        <label htmlFor="preferredLocation">
                             Preferred Location
                         </label>
                         <input
@@ -174,7 +182,7 @@ const SignUp = () => {
                     </div>
                 </div>
 
-                <input type="submit" onClick={handleSubmit} />
+                <input type="submit" onClick={handleSubmit} value="SUBMIT" />
             </div>
 
             <p className="status-signup">{status}</p>
