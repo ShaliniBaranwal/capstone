@@ -1,0 +1,104 @@
+.job-listings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.job-listing {
+    width: 30%;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+.job-listing .job-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.job-listing .job-company {
+    font-size: 1em;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1em;
+}
+
+.job-listing .job-location {
+    font-size: 0.8em;
+    color: #999;
+    margin-bottom: 1em;
+}
+
+.job-listing .job-status {
+    font-size: 0.8em;
+    color: green;
+    text-align: right;
+}
+
+.job-listing .job-code {
+    font-size: 0.8em;
+    color: #666;
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+.job-listing .job-posted-date {
+    font-size: 0.8em;
+    color: #666;
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+.job-listing .job-applied-date {
+    font-size: 0.8em;
+    color: #666;
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+.job-table {
+    margin: auto;
+    background: white;
+    margin-top: 25px;
+    padding: 10px;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+.job-table td,
+.job-table th {
+    padding: 10px;
+}
+
+.job-table thead tr th {
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.job-table tbody tr td {
+    border-bottom: 1px solid #ccc;
+}
+
+.job-code {
+    color: #006fcb;
+}
+
+.status-job-shortlisted {
+    color: #ffb800;
+}
+
+.status-job-interviewing {
+    color: #006fcb;
+}
+
+.status-job-rejected {
+    color: #ff0000;
+}
+
+.status-job-offered {
+    color: #38a743;
+}

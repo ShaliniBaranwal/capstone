@@ -6,19 +6,22 @@
   height: 76px;
   background: #006fcb;
 }
-.leftSect{
-  display:flex;
+
+.leftSect {
+  display: flex;
   margin: 0;
 }
+
 .flex {
   display: flex;
   justify-content: center;
 }
+
 .logo {
   width: 229px;
   height: 65.89px;
-  /* background: url(hvlogo.png); */
 }
+
 .menu {
   color: var(--clr-white);
   font-size: 1rem;
@@ -27,12 +30,28 @@
   padding: 0.5rem 8rem;
   transition: var(--transition);
 }
+
 .menu div {
   margin: 5px 20px 0 20px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
 }
-
+.menu div.navSelected {
+  background-image: url(../../images/Union.png);
+  background-repeat: no-repeat;
+  background-position: 26px 11px;
+  background-size: 40px 40px;
+}
+.nav-links a {
+  margin: 5px 20px 0 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: none;
+  color: white;
+}

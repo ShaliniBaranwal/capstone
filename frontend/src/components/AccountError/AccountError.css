@@ -1,0 +1,27 @@
+.title-err {
+    font-size: 35px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    text-transform: uppercase;
+    color: var(--clr-primary-4);
+}
+
+.description-err {
+    font-size: 30px;
+    margin: auto;
+    text-align: center;
+    color: var(--clr-primary-4);
+}
+
+.buttons-err {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    margin: 60px auto;
+}
+
+.buttons-err > a > button {
+    font-size: 25px;
+}

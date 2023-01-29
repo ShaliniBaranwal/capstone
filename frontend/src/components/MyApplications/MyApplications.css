@@ -23,10 +23,14 @@
 .myapp-interviewing,
 .myapp-rejected,
 .myapp-offerRecieved {
+  background-image: url(../../images/Iconbg.png);
+  background-repeat: no-repeat;
+  background-position: 26px 11px;
+  background-size: 40px 40px;
   width: 12rem;
   height: 4rem;
   padding: 0.1rem;
-  background: #fff;
+  background-color: #fff;
   border-radius: 7.5px;
 }
 .myapp-shortlisted p:first-child,
@@ -40,9 +44,39 @@
   color: var(--clr-black);
 }
 .myapp-main p {
-  padding: 5px 0 5px 20px;
+  /* padding: 5px 0 5px 20px; */
   font-size: 18px;
   font-weight: 600;
   text-align: center;
   color: var(--clr-primary-4);
+}
+.myapp-shortlisted p:last-child {
+  background-image: url(../../images/shortlisted.png);
+  background-repeat: no-repeat;
+  background-position: 35px 0px;
+  background-size: 20px 20px;
+}
+.myapp-interviewing p:last-child {
+  background-image: url(../../images/interview.png);
+  background-repeat: no-repeat;
+  background-position: 35px 0px;
+  background-size: 20px 20px;
+}
+.myapp-rejected p:last-child {
+  background-image: url(../../images/offer.png);
+  background-repeat: no-repeat;
+  background-position: 35px 0px;
+  background-size: 20px 20px;
+}
+.myapp-offerRecieved p:last-child {
+  background-image: url(../../images/appliedJobs.png);
+  background-repeat: no-repeat;
+  background-position: 35px 0px;
+  background-size: 20px 20px;
+}
+.myapp div.arrow {
+  background-image: url(../../images/arrow.png);
+  background-repeat: no-repeat;
+  background-position: 163px 25px;
+  background-size: 15px 15px;
 }

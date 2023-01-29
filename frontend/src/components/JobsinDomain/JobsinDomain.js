@@ -1,15 +1,15 @@
-import React from 'react'
-import JobsForm from '../JobForm/JobForm'
-import JobsListing from '../JobListing/JobListing'
+import React from 'react';
+import JobsForm from '../JobForm/JobForm';
+import JobListing from '../JobListing/JobListing';
 //import Axios from 'axios';
 
 const JobsInDomain = () => {
     return (
         <div className="jobdomain">
-            <JobsForm />
-            <JobsListing />
+            <JobsForm heading="Jobs in Domain" />
+            <JobListing />
         </div>
-    )
-}
+    );
+};
 
-export default JobsInDomain
+export default JobsInDomain;

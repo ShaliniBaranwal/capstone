@@ -1,40 +1,45 @@
-import React, { useState } from 'react'
-import "./MyApplications.css"
+import React, { useContext } from 'react';
+import './MyApplications.css';
+import { Link } from 'react-router-dom'
+import {
+    shortlistedContext,
+    interviewingContext,
+    rejectedContext,
+    offeredContext
+} from '../Dashboard/Dashboard';
 
 function MyApplications() {
-
-    const [shortlisted, setShortlisted] = useState(0)
-    const [interviewing, setInterviewing] = useState(0)
-    const [rejected, setRejected] = useState(0)
-    const [offerRecieved, setOfferRecieved] = useState(0)
+    const shortlisted = useContext(shortlistedContext);
+    const interviewing = useContext(interviewingContext);
+    const rejected = useContext(rejectedContext);
+    const offered = useContext(offeredContext);
 
     return (
-        <div className='myapp-main'>
+        <div className="myapp-main">
             <h3>My Applications</h3>
-            <div className='myapp'>
-                <div className='myapp-shortlisted'>
-                    <p>Shortlisted</p>
-                    <p>{shortlisted}</p>
-                </div>
+            <div className="myapp">
+                <Link to="/Shortlisted"><div className="myapp-shortlisted">
+                    <div className="arrow"><p>Shortlisted</p>
+                        <p>{shortlisted}</p>
+                    </div></div> </Link>
 
-                <div className='myapp-interviewing'>
-                    <p>Interviewing</p>
-                    <p>{interviewing}</p>
-                </div>
+                <Link to="/Interviewing"><div className="myapp-interviewing">
+                    <div className="arrow">   <p>Interviewing</p>
+                        <p>{interviewing}</p>
+                    </div></div> </Link>
 
-                <div className='myapp-rejected'>
-                    <p>Rejected</p>
-                    <p>{rejected}</p>
-                </div>
+                <Link to="/Rejected"><div className="myapp-rejected">
+                    <div className="arrow"><p>Rejected</p>
+                        <p>{rejected}</p>
+                    </div></div></Link>
 
-                <div className='myapp-offerRecieved'>
-                    <p>Offer Received</p>
-                    <p>{offerRecieved}</p>
-                </div>
-
+                <Link to="/Offer"> <div className="myapp-offerRecieved">
+                    <div className="arrow"><p>Offer Received</p>
+                        <p>{offered}</p>
+                    </div></div></Link>
             </div>
         </div>
-    )
+    );
 }
 
-export default MyApplications
+export default MyApplications;

@@ -1,48 +1,62 @@
-import React, { useState } from 'react'
-import "./Snapshot.css"
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import './Snapshot.css';
+import { Link } from "react-router-dom";
 
-function Snapshot({ response }) {
+import {
+    setAllJobsContext,
+    setEligibleJobsContext,
+    setAppliedJobsContext,
+    allJobsContext,
+    eligibleJobsContext,
+    appliedJobsContext
+} from '../Dashboard/Dashboard';
 
-    console.log(response.length);
+const Snapshot = () => {
+    const allJobs = useContext(allJobsContext);
+    const eligibleJobs = useContext(eligibleJobsContext);
+    const appliedJobs = useContext(appliedJobsContext);
 
-    const [allJobs, setAllJobs] = useState(0)
-    const [eligibleJobs, setEligibleJobs] = useState(0)
-    const [appliedJobs, setAppliedJobs] = useState(0)
+    const setAllJobs = useContext(setAllJobsContext);
+    const setAppliedJobs = useContext(setAppliedJobsContext);
+    const setEligibleJobs = useContext(setEligibleJobsContext);
 
-    let appliedCount = response.filter(element => {
-        return element.applied === true
-    });
+    useEffect(() => {
+        const fetch = async () => {
+            const allJobsDetails = await axios.get('/jobs');
+            setAllJobs(allJobsDetails.data.length);
 
-    let count = 0;
-    response.forEach(element => {
-        if (element) {
-            count++;
-        }
+            const appliedJobsDetails = await axios.get('/appliedjobs');
+            setAppliedJobs(appliedJobsDetails.data.length);
 
-    });
+            const eligibleJobsDetails = await axios.get('/eligiblejobs');
+            setEligibleJobs(eligibleJobsDetails.data.length);
+        };
+
+        fetch();
+    }, []);
 
     return (
-        <div className='snapshot-main'>
+        <div className="snapshot-main">
             <h3>Snapshot</h3>
-            <div className='snapshot'>
-                <div className='snapshot-alljobs'>
-                    <p>All JObs</p>
-                    <p>{count}</p>
-                </div>
+            <div className="snapshot">
+            <Link to="/jobsindomain"><div className="snapshot-alljobs">
+                 <div className="arrow"><p>All Jobs</p>
+                    <p>{allJobs}</p>
+                </div></div></Link>
 
-                <div className='snapshot-eligiblejobs'>
-                    <p>Eligible Jobs</p>
+                <Link to="/eligiblejobs"><div className="snapshot-eligiblejobs">
+                 <div className="arrow"> <p>Eligible Jobs</p>
                     <p>{eligibleJobs}</p>
-                </div>
+                </div></div></Link>
 
-                <div className='snapshot-appliedjobs'>
-                    <p>Applied jobs</p>
-                    <p>{appliedCount.length}</p>
-                </div>
-
+                <Link to="/appliedjobs"><div className="snapshot-appliedjobs">
+                <div className="arrow"> <p>Applied jobs</p>
+                    <p>{appliedJobs}</p>
+                </div></div></Link>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Snapshot
+export default Snapshot;
