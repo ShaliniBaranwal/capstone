@@ -112,7 +112,8 @@ const Info = () => {
                                 key !== 'created_at' &&
                                 key !== 'creationDate' &&
                                 key !== 'updated_at' &&
-                                key !== 'email'
+                                key !== 'email' &&
+                                key !== 'profilePic'
                             ) {
                                 if (key !== 'skills' && key !== 'ctc') {
                                     const toDisplay = enhance(key);
@@ -151,6 +152,15 @@ const Info = () => {
                                         );
                                     }
                                 }
+                            } else {
+                                if (key === 'profilePic') {
+                                    return <p className="profile-detail">
+                                        Profile Picture:{' '}
+                                        <span className="profile-info">
+                                            <img src={profile[key]}></img>
+                                        </span>
+                                    </p>;
+                                }
                             }
                         })}
                     </div>
@@ -158,7 +168,9 @@ const Info = () => {
 
                 <div className="link">
                     <Link to="/update">
-                        <button className='button-link-update'>UPDATE THESE DETAILS</button>
+                        <button className="button-link-update">
+                            UPDATE THESE DETAILS
+                        </button>
                     </Link>
                 </div>
             </>

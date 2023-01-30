@@ -9,8 +9,10 @@
 
 .profile-details,
 .account-details {
-    width: 50%;
+    width: 60%;
     padding: 1rem;
+    border: 1px solid black;
+    margin-bottom: 10px;
 }
 
 .info-heading {
@@ -24,6 +26,22 @@
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile-detail img {
+    aspect-ratio: 1/1;
+    border: 2px solid black;
+    object-fit: cover;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.profile-info:has(img) {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
 }
 
 .link {
